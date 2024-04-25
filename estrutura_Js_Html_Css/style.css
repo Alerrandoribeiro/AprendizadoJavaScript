@@ -1,0 +1,19 @@
+h1{
+    color: #e4e2e9;
+    background-color:#0795e7;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #e4e2e9;
+}
+h1:hover{
+ background-color: #4e0ee2;
+ border: 2px solid #2bcaca;
+}
+img{
+
+    width: 300px;
+}
+
+body{
+    background-color: #00ffff;
+}
