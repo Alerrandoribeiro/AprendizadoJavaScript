@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+     <div style="text-align: center; " class = "container-global">
+        <form > 
+          <div class="container-cadastro">
+                <h1>Cadastro</h1> <!--Tela de cadastro-->
+                <label for="nome">Nome:</label>
+                <input type="text" id="newUsername" placeholder="Digite seu nome"><br>
+                <label for="senha">Senha:</label>
+                <input type="password" id="novaSenha" placeholder="informe uma senha"><br>
+                <label for="senha">Repita sua senha:</label>
+                <input type="password" id="repitaSenha" placeholder="repitir senha"><br>
+                <button class="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
+            </div>
+        </form>
+         <form class="form-form">
+            <div class="container-login">
+              <h1>Login</h1> <!-- tela de login-->
+              <label for="nome">Nome:</label>
+              <input type="text" id="usernameCadastrado" placeholder="Digite seu nome"><br>
+              <label for="senha">Senha:</label>
+              <input type="password" id="senhaCadastrada" placeholder="Digite sua senha"><br>
+              <button class= ".btn-login" onclick="logado()">Entrar</button>
+          </div>
+        </form>
+      <div>
+    <script src="script.js"></script>
+</body>
+</html>
