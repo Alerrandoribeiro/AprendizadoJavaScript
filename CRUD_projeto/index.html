@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Define o conjunto de caracteres usado -->
+    <meta charset="UTF-8">
+    <!-- Define a viewport para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página -->
+    <title>Crud</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container para o formulário de cadastro -->
+    <div class="container">
+        <h2>Cadastro</h2>
+ 
+            <!-- Campo para o nome -->
+            <div class="form-group"> 
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome">
+            </div>
+            <!-- Campo para o e-mail -->
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail">
+            </div>
+            <!-- Campo para CPF ou CNPJ -->
+            <div class="form-group">
+                <label for="cpf_cnpj">Cpf ou Cnpj:</label>
+                <!-- Corrigido para type="text" pois cpf_cnpj não é um tipo válido -->
+                <input type="text" id="cpf_cnpj" placeholder="Digite seu cpf ou cnpj">
+            </div>
+            <!-- Campo para data de nascimento ou data de abertura -->
+            <div class="form-group">
+                <label for="data_nascimento_cnpj">Data de nascimento ou abertura:</label>
+                <input type="date" id="data_nascimento_cnpj">
+            </div>
+            <!-- Campo para senha -->
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" placeholder="Digite uma senha">
+            </div>
+            <!-- Campo para confirmar senha -->
+            <div class="form-group">
+                <label for="confirmar_senha">Confirmar senha:</label>
+                <input type="password" id="confirmar_senha" placeholder="Confirme a senha">
+            </div>
+            <!-- Botão para enviar o formulário -->
+            <button type="submit" onclick="cadastro()" class="btn-cadastrar">Cadastrar</button>
+    </div>
+    <!-- Inclui o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
