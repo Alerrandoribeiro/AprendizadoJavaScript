@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyOffice - Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content content_">
+            <div class="coluna_"><!--coluna esquerda (fundo verde)-->
+                <h2 class="titulo titulo_">Bem vindo!</h2>
+                <p class="descricao descricao_">Para seguir conectado conosco</p>
+                <p class="descricao descricao_">faça o login!</p>
+                <button class="btn btn_ ">Login</button> <br><br>
+                <p class="descricao descricao_" onclick="telaApresentacao()">Quem somos? </p>
+            </div><!--fim coluna_-->
+            <div class="coluna__"><!--coluna direita (fundo branco)-->
+                <h2 class="titulo titulo__">Cadastre-se</h2>
+                <p class="descricao descricao__">Utilize seus dados pessoais para cadastro</p>
+                <form class="form"> 
+                    <label class="label_input" for="">
+                        <i class="far fa-user icon-modify"></i>
+                        <input type="text" id="newUsername" placeholder="Nome Completo">
+                    </label>
+                    
+                    <label class="label_input" for="">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input type="email" id="email" placeholder="Email">
+                    </label>
+                    
+                    <label class="label_input" for="">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" id="novaSenha" placeholder="Senha">
+                    </label>
+
+                    <label class="label_input" for="">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" id="repitaSenha" placeholder="Confirme a sua senha">
+                    </label>
+                    <button class="btn btn__" onclick="cadastrar()">Entrar</button>
+                </form>
+            </div><!--fim coluna 2-->
+        </div><!--fim content-->    
+    </div><!--fim container-->
+        <script src="script.js"></script>
+</body>
