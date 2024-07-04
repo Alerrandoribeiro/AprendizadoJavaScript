@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Senha Segura: Peça ao usuário para criar uma senha.
+        // Verifique se a senha tem pelo menos 8 caracteres.
+        let senha = prompt("A senha deve conter pelo menos 8 caracteres \n\nCriar senha: ")
+        alert(verificadorEmail(senha))
+
+          alert(verificadorEmail(senha))
+        function verificadorEmail(senha){
+            let erro
+            if(senha.length > 8 ){
+                    return alert("Erro!")
+            } else {
+                return alert("Senha cadastrada com sucesso!")
+            }
+        }
+
+    </script>
+</body>
+</html>

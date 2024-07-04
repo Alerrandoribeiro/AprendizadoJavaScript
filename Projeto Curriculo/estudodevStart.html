@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+  /* let email =  prompt("Informe seu email: ") // pedindo informação do usuário
+
+    alert("Como era: " + email)
+    alert( "Como ficou : " + transformaEmMinuscula(email)) // chamando a função
+
+    function transformaEmMinuscula(emailDigitado){ // conversão de String para tudo minúscula
+           return emailDigitado.toLowerCase()
+    }
+    function transformaEmMaiuscula(emailDigitado){ // conversão de String para tudo maiúscula
+           return emailDigitado.toUpperCase()
+    } */
+
+  // usando função de voto 
+
+ /* let idade = parseInt(prompt("Digite sua idade: "))
+
+  alert(podeVotar(idade))
+
+  function podeVotar (idadeEleitor) {
+    if (idadeEleitor >= 16){
+       return " Pode Votar! "
+    } else {
+        return " Você não tem idade pra votar! "
+    }
+
+
+  } */
+/* let idade = parseInt(prompt("Digite sua idade: "))
+alert(maiorIdade(idade))
+function eMaiorDeIdade(){
+    return " É maior de idade! "
+}
+
+function maiorIdade(numero){
+    if(numero >= 18){
+        return eMaiorDeIdade()
+    }
+} */ function dobro(x) {
+    return x * 2
+}
+
+function triplo(x) {
+    return x * 3
+}
+
+function executar(operacao, x) {
+    console.log(operacao)
+    console.log(x)
+    if(operacao == "dobro"){
+        return dobro(x)
+    }
+    if (operacao == "triplo"){
+        return triplo(x)
+    }
+}
+
+// Exemplos de uso
+alert(executar ("dobro", 5))
+alert(executar ("triplo", 8))
+    </script>
+</body>
+</html>
