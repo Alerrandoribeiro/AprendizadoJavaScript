@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Imagem</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+        .image-container {
+            margin-bottom: 10px;
+        }
+        .description {
+            margin-bottom: 10px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img id="image" src="caminho-da-imagem.jpg" alt="Imagem de Cadastro" width="200">
+        </div>
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+        
+        <div class="input-group">
+            <input type="text" id="descriptionInput" placeholder="Digite a descrição">
+        </div>
+        <div class="input-group">
+            <input type="text" id="stateInput" placeholder="Estado">
+        </div>
+        <div class="input-group">
+            <input type="text" id="cityInput" placeholder="Cidade">
+        </div>
+        <div class="input-group">
+            <input type="text" id="phoneInput" placeholder="Telefone">
+        </div>
+        <div class="input-group">
+            <input type="text" id="neighborhoodInput" placeholder="Bairro">
+        </div>
+        <div class="input-group">
+            <input type="text" id="complementInput" placeholder="Complemento">
+        </div>
+        <div class="input-group">
+            <input type="number" id="capacityInput" placeholder="Capacidade da Sala">
+        </div>
+        
+        <div class="buttons">
+            <button onclick="updateDescription()">Atualizar</button>
+            <button onclick="deleteEntry()">Excluir</button>
+            <button onclick="registerEntry()">Cadastrar</button>
+        </div>
+    </div>
+
+    <div id="registeredEntries">
+        <h2>Entradas Cadastradas</h2>
+        <ul id="entriesList"></ul>
+    </div>
+
+    <script>
+        // Função para visualizar a imagem selecionada
+        function previewImage(event) {
+            const image = document.getElementById('image');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        // Função para atualizar a descrição
+        function updateDescription() {
+            const descriptionInput = document.getElementById('descriptionInput');
+            alert('Descrição atualizada para: ' + descriptionInput.value);
+        }
+
+        // Função para excluir a entrada
+        function deleteEntry() {
+            const container = document.querySelector('.container');
+            container.innerHTML = '<p>Entrada excluída.</p>';
+        }
+
+        // Função para cadastrar a entrada
+        function registerEntry() {
+            const descriptionInput = document.getElementById('descriptionInput').value;
+            const stateInput = document.getElementById('stateInput').value;
+            const cityInput = document.getElementById('cityInput').value;
+            const phoneInput = document.getElementById('phoneInput').value;
+            const neighborhoodInput = document.getElementById('neighborhoodInput').value;
+            const complementInput = document.getElementById('complementInput').value;
+            const capacityInput = document.getElementById('capacityInput').value;
+            const imageSrc = document.getElementById('image').src;
+
+            if (descriptionInput && stateInput && cityInput && phoneInput && neighborhoodInput && complementInput && capacityInput && imageSrc) {
+                const entriesList = document.getElementById('entriesList');
+                const listItem = document.createElement('li');
+
+                const img = document.createElement('img');
+                img.src = imageSrc;
+                img.width = 100;
+
+                const desc = document.createElement('p');
+                desc.innerHTML = `<strong>Descrição:</strong> ${descriptionInput}<br>
+                                  <strong>Estado:</strong> ${stateInput}<br>
+                                  <strong>Cidade:</strong> ${cityInput}<br>
+                                  <strong>Telefone:</strong> ${phoneInput}<br>
+                                  <strong>Bairro:</strong> ${neighborhoodInput}<br>
+                                  <strong>Complemento:</strong> ${complementInput}<br>
+                                  <strong>Capacidade da Sala:</strong> ${capacityInput}`;
+
+                listItem.appendChild(img);
+                listItem.appendChild(desc);
+
+                entriesList.appendChild(listItem);
+
+                alert('Entrada cadastrada com sucesso!');
+            } else {
+                alert('Por favor, preencha todos os campos e selecione uma imagem.');
+            }
+        }
+    </script>
+</body>
+</html>
