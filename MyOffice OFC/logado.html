@@ -15,14 +15,28 @@
 			<img src="Imagem/login.png" class="img_login" alt="Login Image" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<!-- chamado o botão do Modal -->
-				<button type="button" id="abrirModal" ><a class="dropdown-item">Cadastro de salas</a></button> 
+				<button style="background-color: hwb(0 100% 0%); border: none;" type="button" id="abrirModal" ><a class="dropdown-item">Cadastro de salas</a></button> 
                 <a class="dropdown-item"  onclick="exibeSalas()">Salas cadastradas</a>
+                <button style="background-color: hwb(0 100% 0%); border: none;" type="button" id="abrirModalConsulta" >
+                  <a class="dropdown-item">Pesquisar salas</a>
+                </button>    
                 <a class="dropdown-item" onclick="sair()">Sair</a>
             </div>
     </div>
 </header> <br>
 
 <!-- Botão para abrir o modal <button >Abrir Modal</button> -->
+
+<!-- Modal de Consulta -->
+<div id="modalConsulta" class="modal">
+  <div class="modal-content">
+    <span class="closeConsulta">&times;</span>
+    <label for="pesquisa">Pesquisar sala:</label>
+      <input placeholder=" Informe o estado, cidade, bairro ou cep" type="text" id="pesquisa" required><br>
+      <button  onclick="pesquisarSalas()" >buscar</button>
+    
+  </div>
+</div>
 
 <!-- Modal -->
 <div id="myModal" class="modal">
@@ -73,8 +87,9 @@
       <label for="data_cadastro_salas">Data:</label>
       <input type="date" id="data_cadastro_salas" required>
       <br>
+      <!--Vou alterar aqui-->
       <label for="imagens_salas">Imagens:</label>
-      <input type="file" id="imagens_salas" multiple accept="image/*">
+      <input type="text" id="imagens_salas">
       <br>
       <label for="descricao_cadastro_salas">Descrição:</label>
       <input placeholder="Descrição da sala" type="text" id="descricao_cadastro_salas" required>
@@ -87,6 +102,11 @@
 <div style="text-align: center;" class="container-exibe-Sala">
 	<h3>Salas cadastradas</h3><br>
 	<p id="lista_salas"></p>
+ </div>
+ <!-- Mostrar salas-->
+<div style="text-align: center;" class="container-exibe-Sala">
+	<h3>Pesquisa de salas</h3><br>
+	<p id="lista"></p>
  </div>
 
 	<footer>

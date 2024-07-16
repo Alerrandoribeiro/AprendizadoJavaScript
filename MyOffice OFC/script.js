@@ -14,22 +14,22 @@ function logado() {
     let bancoDeDados = JSON.parse(localStorage.getItem("bancoDeDados")); /**Use JSON.parse(localStorage.getItem("bancoDeDados")) para obter os dados armazenados na Local Storage. Verifique se o banco de dados existe:
       */
     if (bancoDeDados == null) {
-      mensagem = "Nenhum usuário cadastrado até o momento";
+        mensagem = "Nenhum usuário cadastrado até o momento";
     } else {
-      /**Dentro do bloco else, percorra os usuários do banco de dados e verifique se as credenciais correspondem a algum usuário, ao se logar, crie o elemento ‘logado’ no localStorage, para identificar o usuário que se logou: */
-      for (let usuario of bancoDeDados) {
-        if (usuario.email == EmailLogin && usuario.senha == senhaLogin) {
-          mensagem = "Parabéns, você logou!";
-          localStorage.setItem("logado", JSON.stringify(usuario));
-          LimparPlaceHolder()
-          window.location.href = 'logado.html';
-          break;
+        /**Dentro do bloco else, percorra os usuários do banco de dados e verifique se as credenciais correspondem a algum usuário, ao se logar, crie o elemento ‘logado’ no localStorage, para identificar o usuário que se logou: */
+        for (let usuario of bancoDeDados) {
+            if (usuario.email == EmailLogin && usuario.senha == senhaLogin) {
+                mensagem = "Parabéns, você logou!";
+                localStorage.setItem("logado", JSON.stringify(usuario));
+                LimparPlaceHolder()
+                window.location.href = 'logado.html';
+                break;
+            }
         }
-      }
     }
     alert(mensagem)
     LimparPlaceHolder()
-  }
+}
 
 
 function cadastrar() {
@@ -38,7 +38,7 @@ function cadastrar() {
     let confirmarSenha = campoRepitaSenha.value;
     let email = campoEmail.value;
     // percorrendo o valor do campo de input, para sabert se contém @
-     if (nome != '' && email != '' && senha != '' && confirmarSenha != '') {
+    if (nome != '' && email != '' && senha != '' && confirmarSenha != '') {
 
         if (senha == confirmarSenha) {
             const usuario = {
@@ -58,7 +58,7 @@ function cadastrar() {
                 localStorage.setItem("bancoDeDados", JSON.stringify(bancoDeDados));
                 alert("Usuário cadastrado com sucesso!");
 
-               LimparPlaceHolder();
+                LimparPlaceHolder();
             }
         } else {
             alert("As senhas são diferentes!");
@@ -79,31 +79,31 @@ function existe(usuario, bancoDeDados) {
     return false;
 }
 
-function telaApresentacao(){
+function telaApresentacao() {
     window.location.href = 'paginaApresentacao.html';
 }
 
-function telaLogin(){
+function telaLogin() {
     window.location.href = 'login.html';
 }
 
-function voltar(){
+function voltar() {
     window.location.href = 'index.html';
 }
 
-function sair(){
+function sair() {
     window.location.href = 'index.html';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Seleciona todos os links âncora que começam com #
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Obtém o alvo do href
             const target = document.querySelector(this.getAttribute('href'));
-            
+
             // Se o elemento existir, rola suavemente até ele
             if (target) {
                 target.scrollIntoView({
@@ -122,29 +122,60 @@ document.addEventListener('DOMContentLoaded', function() {
 let modal = document.getElementById("myModal");
 
 // Obtém o botão que abre o modal
-let  btnAbrir = document.getElementById("abrirModal");
+let btnAbrir = document.getElementById("abrirModal");
 
 // Obtém o elemento <span> que fecha o modal
 let spanFechar = document.getElementsByClassName("close")[0];
 
 // Quando o usuário clicar no botão, abre o modal
-btnAbrir.onclick = function() {
+btnAbrir.onclick = function () {
     modal.style.display = "block";
 }
 
 // Quando o usuário clicar no <span> (x), fecha o modal
-spanFechar.onclick = function() {
+spanFechar.onclick = function () {
     modal.style.display = "none";
 }
 
 // Quando o usuário clicar fora do modal, ele também fecha
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
-  }
+    }
 }
 
 // ====== finaliza o modal de logado========
+
+// ====== inicia o modal de consulta=====
+
+// Obtém o modal de consulta
+let modalConsulta = document.getElementById("modalConsulta");
+
+// Obtém o botão que abre o modal de consulta
+let btnAbrirConsulta = document.getElementById("abrirModalConsulta");
+
+// Obtém o elemento <span> que fecha o modal de consulta
+let spanFecharConsulta = document.getElementsByClassName("closeConsulta")[0];
+
+// Quando o usuário clicar no botão, abre o modal de consulta
+btnAbrirConsulta.onclick = function () {
+    modalConsulta.style.display = "block";
+}
+
+// Quando o usuário clicar no <span> (x), fecha o modal de consulta
+spanFecharConsulta.onclick = function () {
+    modalConsulta.style.display = "none";
+}
+
+// Quando o usuário clicar fora do modal, ele também fecha
+window.onclick = function (event) {
+    if (event.target == modalConsulta) {
+        modalConsulta.style.display = "none";
+    }
+}
+
+// ======  finaliza o modal de consulta ======
+
 
 //==================== começa a parte de cadastros de salas aqui
 
@@ -157,17 +188,8 @@ function cadastrarSala() {
     let bairro = document.getElementById('bairro_cadastro_salas').value;
     let data = document.getElementById('data_cadastro_salas').value;
     let descricao = document.getElementById('descricao_cadastro_salas').value;
-    
-    // Captura as imagens selecionadas pelo usuário
-    let imagens = document.getElementById('imagens_salas').files;
-    
-    // Converte a lista de FileList em um array de URLs das imagens
-    let imagensUrls = [];
-    for (let i = 0; i < imagens.length; i++) {
-        let url = URL.createObjectURL(imagens[i]);
-        imagensUrls.push(url);
-    }
-    
+    let imagem = document.getElementById('imagens_salas').value;
+
     // Salva os dados no localStorage
     let novaSala = {
         cep: cep,
@@ -176,9 +198,9 @@ function cadastrarSala() {
         bairro: bairro,
         data: data,
         descricao: descricao,
-        imagens: imagensUrls // Array de URLs das imagens
+        imagem: imagem
     };
-    
+
     // Verifica se já existe alguma informação no localStorage
     let salas = JSON.parse(localStorage.getItem('salas')) || [];
 
@@ -186,12 +208,12 @@ function cadastrarSala() {
     salas.push(novaSala);
     // Atualiza o localStorage com a nova lista de salas
     localStorage.setItem('salas', JSON.stringify(salas));
-    
+
     // Mensagem de sucesso
     alert("Sala cadastrada com sucesso!");
     limparCadastro();
     cep.focus()
-    
+
 }
 
 const lista = document.getElementById("lista_salas");
@@ -202,48 +224,83 @@ function exibeSalas() {
     if (!aberto) {
         aberto = true;
         let salas = JSON.parse(localStorage.getItem("salas"));
-        
+
         if (salas == null) {
             sala = 'Não há salas cadastradas no momento!'
         } else {
-      for (let novaSala of salas) {
-          sala += `<div class="sala">
-          <p><strong>CEP:</strong> ${novaSala.cep}</p>
+            for (let novaSala of salas) {
+                sala += `<div class="sala">
+          <img src="imagem/${novaSala.imagem}.jpg" width="500" height="300">
+          <br><br>
+          <p><strong>CEP:</strong> ${novaSala.cep}</p>  
           <p><strong>Estado:</strong> ${novaSala.estado}</p>
           <p><strong>Cidade:</strong> ${novaSala.cidade}</p>
           <p><strong>Bairro:</strong> ${novaSala.bairro}</p>
           <p><strong>Data:</strong> ${novaSala.data}</p>
           <p><strong>Descrição:</strong> ${novaSala.descricao}</p>
-          <img src="${novaSala.imagensUrls} alt ="">
-          </div><br><br>`;
+          </div>`;
+            }
+            lista.innerHTML = sala;
         }
-        lista.innerHTML = sala;
+    } else {
+        aberto = false;
+        lista.innerHTML = '';
     }
-} else {
-    aberto = false;
-    lista.innerHTML = '';
-}
 }
 
 
-function LimparPlaceHolder(){
+function LimparPlaceHolder() {
     campoEmail.value = '';
     campoNovoCadasto.value = '';
     campoSenha.value = '';
     campoRepitaSenha.value = '';
     campoEmailLogin.value = '';
     campoSenhaLogin.value = '';
-    
+
 }
-function limparCadastro(){
+function limparCadastro() {
     document.getElementById('cep_cadastro_salas').value = '';
     document.getElementById('estados_cadastro_salas').value = '';
     document.getElementById('cidade_cadastro_salas').value = '';
     document.getElementById('bairro_cadastro_salas').value = '';
     document.getElementById('data_cadastro_salas').value = '';
     document.getElementById('descricao_cadastro_salas').value = '';
-     // Limpar campo de seleção de imagens
-     let inputImagens = document.getElementById('imagens_salas');
-     inputImagens.value = ''; 
+    // Limpar campo de seleção de imagens
+    let inputImagens = document.getElementById('imagens_salas');
+    inputImagens.value = '';
 }
 
+const listaDeConsulta = document.getElementById("lista");
+
+let encontrado = -1;
+
+const pesquisa = document.getElementById("pesquisa").value;
+
+function pesquisarSalas() {
+    let pesquisaCep = cep.value;
+    let pesquisaEstado = estado.value;
+    let pesquisaCidade = cidade.value;
+    let pesquisaBairro = bairro.value;
+    let resultadoSalas = ""; // Variável para acumular resultados
+
+    for (let i = 0; i < salas.length; i++) {
+        if (salas[i].cep == pesquisa || salas[i].estado == pesquisa || salas[i].cidade == pesquisa || salas[i].bairro == pesquisa) {
+
+            resultadoSalas += `<div class="sala">
+            <img src="imagem/${salas[i].imagem}.jpg" width="500" height="300">
+            <br><br>
+            <p><strong>CEP:</strong> ${salas[i].cep.value}</p>
+            <p><strong>Estado:</strong> ${salas[i].estado}</p>
+            <p><strong>Cidade:</strong> ${salas[i].cidade}</p>
+            <p><strong>Bairro:</strong> ${salas[i].bairro}</p>
+            <p><strong>Data:</strong> ${salas[i].data}</p>
+            <p><strong>Descrição:</strong> ${salas[i].descricao}</p>
+            </div>`;
+            
+            encontrado = i; // Atualiza o índice de encontrado
+        }
+    }
+
+    // Atualiza o conteúdo da lista com os resultados encontrados
+    listaDeConsulta.innerHTML = resultadoSalas;
+}

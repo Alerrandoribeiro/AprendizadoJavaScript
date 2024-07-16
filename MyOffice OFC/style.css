@@ -266,7 +266,7 @@ header {
 
 .dropdown-item{
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 10px;  
 }
 
  .carousel-item img {
@@ -402,11 +402,12 @@ header {
     max-width: 400px; /* Define uma largura máxima para o modal */
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%, -45%);
   }
   
   /* Estilo para o botão de fechar */
+  .closeConsulta,
   .close {
     color: #ff0000;
     float: right;
@@ -414,6 +415,8 @@ header {
     font-weight: bold;
   }
   
+  .closeConsulta:hover,
+  .closeConsulta:focus,
   .close:hover,
   .close:focus {
     color: hsl(0, 0%, 0%);
