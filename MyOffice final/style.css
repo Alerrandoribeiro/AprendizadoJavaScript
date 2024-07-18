@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+   
+        background-image: url('imagem/sala\ de\ fundo.avif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    
+    
+}
+
+/* Index.html */
+
+.cabecalho{
+    background-color: #58af9b;
+    height: 60px;
+    left: 10%;
+    }
+        
+.img{
+      float: left;
+      right: 40%;
+      position: absolute;       
+      cursor: pointer;
+    }
+    
+.entrar{ 
+     color: #fff;
+     float: right;
+     position: absolute;
+     left: 90%;          
+    }
+
+.img_login{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}    
+
+.footer {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        background-color: #58af9b;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 0.9em;
+        line-height: 1.5em;
+        font-family: 'Open Sans', sans-serif;
+      
+    }
+/* Login.html */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ecf0f1;
+}
+.content {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 960px;
+    height: 60%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.content::before {
+    content: "";
+    position: absolute;
+    background-color: #58af9b;
+    width: 40%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+
+    left: 0;
+}
+
+.input_{
+        height: 22px;
+        width: 60%;
+        border: none;
+        background-color: #ecf0f1;
+        border-radius: 3px;
+    }
+    
+
+
+.titulo {
+    font-size: 28px;
+    font-weight: bold;
+}
+.titulo_ {
+    color: #fff;
+}
+.title__ {
+    color: #58af9b;
+}
+.descricao {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 30px;
+}
+.descricao_ {
+    color: #fff;
+}
+.descricao__{
+    color: #7f8c8d;
+}
+.btn {
+    border-radius: 15px;
+    border: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px;
+    align-self: center;    
+    margin-top: 1rem;
+}
+.btn_ {
+    background-color:  #58af9b;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+}
+.btn_:hover {
+    background-color: #fff;
+    color: #58af9b;
+}
+.btn_ {
+    background-color: #58af9b;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+}
+.btn_:hover {
+    background-color: #fff;
+    border: 1px solid #58af9b;
+    color: #58af9b;
+}
+
+.btn__{
+    background-color: #58af9b;
+    border: 1px solid #58af9b;
+    transition: background-color .5s;
+}
+
+.btn__:hover {
+    background-color: #fff;
+    border: 1px solid #58af9b;
+    color: #58af9b;
+}
+
+.content_ {
+    display: flex;
+}
+.content_ .coluna__ {
+    z-index: 11;
+}
+.coluna_ {
+  
+    text-align: center;
+    width: 40%;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+}
+.coluna__ {
+    width: 60%;
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+.form input {
+    height: 35px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+   
+}
+
+/*input:-webkit-autofill 
+{    
+    -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
+    -webkit-text-fill-color: #000 !important;
+}*/
+
+.label_input {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    border-radius: 2px;
+}
+.icon-modify {
+    color: #7f8c8d;
+    padding: 0 5px;
+}
+
+
+
+  /* Estilos simples para a página */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #58af9b;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+.container-apresentacao {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+.introducao{
+    color: #58af9b; 
+}
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.btn-png-apresentacao {
+    padding: 3px 30px;
+  background-color: #58af9b;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+    margin-bottom: 20px;
+}
+.btn-png-apresentacao:hover{
+    background-color: #fff;
+    border: 1px solid #58af9b;
+    color: #58af9b;
+    cursor: pointer;
+    
+}
+.features {
+    margin-top: 20px;
+    border-radius: 15px;
+}
+.feature {
+    margin-bottom: 20px;
+}
+.feature h3 {
+    color: #58af9b;
+}
+
+.dropdown-item{
+    cursor: pointer;
+    padding-left: 10px;  
+}
+
+ .carousel-item img {
+        width: 100%;
+        height: 500px; /* Altura desejada das imagens */
+        object-fit: cover;
+    }
+
+   
+  /*Nav html*/
+    nav {
+        text-align: center; /* Centraliza o conteúdo dentro do nav */
+        background-color: #f0f0f0; /* Cor de fundo do nav, se desejar */
+        padding: 10px; /* Espaçamento interno do nav */
+    }
+    
+    nav a {
+        text-decoration: none; /* Remove o sublinhado padrão dos links */
+        color: #333; /* Cor do texto dos links */
+        margin: 0 10px; /* Margem entre os links */
+    }
+    
+    nav a:hover {
+        text-decoration: underline; /* Sublinhado nos links ao passar o mouse */
+        color: #555; /* Cor do texto ao passar o mouse */
+    }
+    
+
+
+
+
+
+
+
+
+
+/* parte de cadastro de salas */
+
+    .containerCadastro {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 370px;
+       
+    }
+
+    .containerCadastro h2 {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .containerCadastro label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .containerCadastro input[type="text"],
+    .containerCadastro input[type="date"],
+    .containerCadastro input[type="file"],
+    .containerCadastro button {
+        width: calc(100% - 12px); /* Ajuste para o padding */
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .containerCadastro input[type="file"] {
+        padding: 4px;
+    }
+
+    .containerCadastro button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .containerCadastro button:hover {
+        background-color: #45a049;
+    }
+
+    .estados {
+        display: block; /* Garante que o label ocupe uma linha inteira */
+        margin-bottom: 8px; /* Espaçamento inferior entre o label e o select */
+        font-weight: bold; /* Fonte em negrito para destacar */
+    }
+    #estados {
+        width: 100%; /* Ocupa toda a largura do seu contêiner */
+        padding: 8px; /* Espaçamento interno */
+        font-size: 16px; /* Tamanho da fonte */
+        border: 1px solid #ccc; /* Borda cinza */
+        border-radius: 4px; /* Cantos arredondados */
+    }
+
+    #estados option {
+        padding: 8px; /* Espaçamento interno */
+    }
+    
+    /* Estilo quando o select está focado */
+    #estados:focus {
+        outline: none; /* Remove o contorno padrão ao focar */
+        border-color: #66afe9; /* Cor da borda quando focado */
+        box-shadow: 0 0 5px rgba(102, 175, 233, 0.5); /* Sombra ao redor */
+    }
+
+
+
+/* Estilo para o modal */
+.modal {
+    display: none; /* Ocultar modal por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* fundo semi-transparente */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    width: 70%;
+    max-width: 400px; /* Define uma largura máxima para o modal */
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -35%);
+  }
+  
+  /* Estilo para o botão de fechar */
+  .closeConsulta,
+  .close {
+    color: #ff0000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .closeConsulta:hover,
+  .closeConsulta:focus,
+  .close:hover,
+  .close:focus {
+    color: hsl(0, 0%, 0%);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+    /* Fim da parte de cadastro de salas */
+    
