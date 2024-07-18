@@ -182,16 +182,22 @@ window.onclick = function (event) {
 // Função para cadastrar uma sala
 function cadastrarSala() {
     // Captura os valores dos campos do formulário
+    let id = document.getElementById('id_cadastro_salas').value;
     let cep = document.getElementById('cep_cadastro_salas').value;
     let estado = document.getElementById('estados_cadastro_salas').value;
     let cidade = document.getElementById('cidade_cadastro_salas').value;
     let bairro = document.getElementById('bairro_cadastro_salas').value;
     let data = document.getElementById('data_cadastro_salas').value;
+    let preco = document.getElementById('preco_cadastro_salas').value;
+    let capacidade = document.getElementById('capacidade_cadastro_salas').value;
     let descricao = document.getElementById('descricao_cadastro_salas').value;
     let imagem = document.getElementById('imagens_salas').value;
 
     // Salva os dados no localStorage
     let novaSala = {
+        id: id,
+        preco: preco,
+        capacidade: capacidade,
         cep: cep,
         estado: estado,
         cidade: cidade,
@@ -230,7 +236,8 @@ function exibeSalas() {
         } else {
             for (let novaSala of salas) {
                 sala += `<div class="sala">
-          <img src="imagem/${novaSala.imagem}.jpg" width="500" height="300">
+                <p><strong>Id da sala:</strong> ${novaSala.id}</p>
+                <img src="imagem/${novaSala.imagem}.jpg" width="500" height="300">
           <br><br>
           <p><strong>CEP:</strong> ${novaSala.cep}</p>  
           <p><strong>Estado:</strong> ${novaSala.estado}</p>
@@ -238,6 +245,8 @@ function exibeSalas() {
           <p><strong>Bairro:</strong> ${novaSala.bairro}</p>
           <p><strong>Data:</strong> ${novaSala.data}</p>
           <p><strong>Descrição:</strong> ${novaSala.descricao}</p>
+          <p><strong>Capacidade da sala:</strong> ${novaSala.capacidade} pessoas</p>
+          <p><strong>Preço Diária:</strong> ${novaSala.preco}R$</p>
           </div>`;
             }
             lista.innerHTML = sala;
@@ -265,6 +274,10 @@ function limparCadastro() {
     document.getElementById('bairro_cadastro_salas').value = '';
     document.getElementById('data_cadastro_salas').value = '';
     document.getElementById('descricao_cadastro_salas').value = '';
+    document.getElementById('preco_cadastro_salas').value = '';
+    document.getElementById('capacidade_cadastro_salas').value = '';
+    document.getElementById('id_cadastro_salas').value = '';
+
     // Limpar campo de seleção de imagens
     let inputImagens = document.getElementById('imagens_salas');
     inputImagens.value = '';
@@ -274,33 +287,57 @@ const listaDeConsulta = document.getElementById("lista");
 
 let encontrado = -1;
 
-const pesquisa = document.getElementById("pesquisa").value;
 
-function pesquisarSalas() {
-    let pesquisaCep = cep.value;
-    let pesquisaEstado = estado.value;
-    let pesquisaCidade = cidade.value;
-    let pesquisaBairro = bairro.value;
-    let resultadoSalas = ""; // Variável para acumular resultados
+function consultarSala() {
+
+    let salas = JSON.parse(localStorage.getItem("salas"));
+
+    let idPesquisa = document.getElementById("id_cadastro_salas").value;
 
     for (let i = 0; i < salas.length; i++) {
-        if (salas[i].cep == pesquisa || salas[i].estado == pesquisa || salas[i].cidade == pesquisa || salas[i].bairro == pesquisa) {
+    
+        if (salas[i].id == idPesquisa) {
 
-            resultadoSalas += `<div class="sala">
-            <img src="imagem/${salas[i].imagem}.jpg" width="500" height="300">
-            <br><br>
-            <p><strong>CEP:</strong> ${salas[i].cep.value}</p>
-            <p><strong>Estado:</strong> ${salas[i].estado}</p>
-            <p><strong>Cidade:</strong> ${salas[i].cidade}</p>
-            <p><strong>Bairro:</strong> ${salas[i].bairro}</p>
-            <p><strong>Data:</strong> ${salas[i].data}</p>
-            <p><strong>Descrição:</strong> ${salas[i].descricao}</p>
-            </div>`;
-            
+            //id.value[i] = salas[i].id;
+            document.getElementById('imagens_salas').value = salas[i].imagem;
+            document.getElementById('cep_cadastro_salas').value = salas[i].cep;
+            document.getElementById('estados_cadastro_salas').value = salas[i].estado;
+            document.getElementById('cidade_cadastro_salas').value = salas[i].cidade;
+            document.getElementById('bairro_cadastro_salas').value = salas[i].bairro;
+            document.getElementById('data_cadastro_salas').value = salas[i].data;
+            document.getElementById('descricao_cadastro_salas').value = salas[i].descricao;
+            document.getElementById('capacidade_cadastro_salas').value = salas[i].capacidade;
+            document.getElementById('preco_cadastro_salas').value = salas[i].preco;
+
+   
             encontrado = i; // Atualiza o índice de encontrado
         }
     }
+        if (encontrado === -1) {
+        alert("Nenhuma sala encontrada.");  
+    }
+}
 
-    // Atualiza o conteúdo da lista com os resultados encontrados
-    listaDeConsulta.innerHTML = resultadoSalas;
+
+function AtualizarDadosSala(){
+    if (encontrado === -1) {
+        alert("Nenhuma sala encontrada para atualizar.");
+        
+    }
+
+    let salas = JSON.parse(localStorage.getItem("salas"));
+
+    salas[encontrado].imagem = document.getElementById('imagens_salas').value;
+    salas[encontrado].cep = document.getElementById('cep_cadastro_salas').value;
+    salas[encontrado].estado = document.getElementById('estados_cadastro_salas').value;
+    salas[encontrado].cidade = document.getElementById('cidade_cadastro_salas').value;
+    salas[encontrado].bairro = document.getElementById('bairro_cadastro_salas').value;
+    salas[encontrado].data = document.getElementById('data_cadastro_salas').value;
+    salas[encontrado].descricao = document.getElementById('descricao_cadastro_salas').value;
+    salas[encontrado].capacidade = document.getElementById('capacidade_cadastro_salas').value;
+    salas[encontrado].preco = document.getElementById('preco_cadastro_salas').value;
+
+    localStorage.setItem("salas", JSON.stringify(salas));
+
+    alert("Dados da sala atualizados com sucesso.");
 }

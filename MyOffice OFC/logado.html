@@ -28,7 +28,7 @@
 <!-- Botão para abrir o modal <button >Abrir Modal</button> -->
 
 <!-- Modal de Consulta -->
-<div id="modalConsulta" class="modal">
+<div id="modalConsulta" class="modal-consulta">
   <div class="modal-content">
     <span class="closeConsulta">&times;</span>
     <label for="pesquisa">Pesquisar sala:</label>
@@ -45,6 +45,9 @@
     <span class="close">&times;</span>
     <div class="containerCadastro">
       <h2>Cadastro salas</h2>
+      <label for="id_cadastro_salas">Id:</label>
+      <input placeholder="Cadastre ou consulte um Id" type="text" id="id_cadastro_salas" required>
+      <br>
       <label for="cep_cadastro_salas">Cep:</label>
       <input placeholder="Digite o cep " type="text" id="cep_cadastro_salas" required>
       <br>
@@ -87,14 +90,22 @@
       <label for="data_cadastro_salas">Data:</label>
       <input type="date" id="data_cadastro_salas" required>
       <br>
-      <!--Vou alterar aqui-->
-      <label for="imagens_salas">Imagens:</label>
-      <input type="text" id="imagens_salas">
+      <label for="preco_cadastro_salas">Preço:</label>
+      <input placeholder="Digite o preço da sala " type="number" id="preco_cadastro_salas" required>
+      <br>
+      <label for="capacidade_cadastro_salas">Capacidade da sala:</label>
+      <input placeholder="Capacidade da sala " type="number" id="capacidade_cadastro_salas" required>
       <br>
       <label for="descricao_cadastro_salas">Descrição:</label>
       <input placeholder="Descrição da sala" type="text" id="descricao_cadastro_salas" required>
+      <br>
+      <!--Vou alterar aqui-->
+      <label for="imagens_salas">Imagens:</label>
+      <input placeholder="Informe a imagem " type="text" id="imagens_salas">
       <br><br>
-      <button onclick="cadastrarSala()">Cadastrar</button>
+      <button id="cadastrarSala" onclick="cadastrarSala()">Cadastrar</button>
+      <button id="consultarSala" onclick="consultarSala()">Buscar sala</button>
+      <button id="atualizarSala" onclick="AtualizarDadosSala()">Atualizar sala</button>
     </div>
   </div>
 </div>
