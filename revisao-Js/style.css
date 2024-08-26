@@ -1,0 +1,22 @@
+button {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinha o texto */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+    border-radius: 5px; /* Bordas arredondadas */
+    
+}
+
+/* Estilo para o estado hover do botão */
+button:hover {
+    background-color: #e91717; /* Cor de fundo ao passar o mouse */
+}
+
+.questaoSete{
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+}
